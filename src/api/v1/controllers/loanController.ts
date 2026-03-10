@@ -28,10 +28,11 @@ export const getLoanById = (req: Request, res: Response): void => {
     throw new NotFoundError("Loan not found", "LOAN_NOT_FOUND");
   }
 
-  res.status(HTTP_STATUS.OK).json({
-    message: "Loan retrieved",
-    data: loan,
-  });
+res.status(HTTP_STATUS.OK).json({
+  message: "Loan applications retrieved",
+  count: loans.length,
+  data: loans,
+});
 };
 
 export const createLoan = (req: Request, res: Response): void => {
