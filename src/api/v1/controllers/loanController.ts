@@ -6,7 +6,9 @@ import { CreateLoanBody, Loan, UpdateLoanBody } from "../models/loanModel";
 
 export const getHealth = (req: Request, res: Response): void => {
   res.status(HTTP_STATUS.OK).json({
-    message: "API is running",
+    status: "success",
+    message: "Loan API is running",
+    timestamp: new Date().toISOString(),
   });
 };
 
