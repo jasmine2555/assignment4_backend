@@ -20,35 +20,35 @@ router.get(
   "/loans",
   authenticate,
   authorize(["officer", "manager", "admin"]),
-  getLoans,
+  getLoans
 );
 
 router.get(
   "/loans/:id",
   authenticate,
   authorize(["officer", "manager", "admin"]),
-  getLoanById,
+  getLoanById
 );
 
 router.post(
   "/loans",
   authenticate,
   authorize(["manager", "admin"]),
-  createLoan,
+  createLoan
 );
 
 router.put(
   "/loans/:id",
   authenticate,
   authorize(["manager", "admin"]),
-  updateLoan,
+  updateLoan
 );
 
 router.delete(
   "/loans/:id",
   authenticate,
   authorize(["admin"]),
-  deleteLoan,
+  deleteLoan
 );
 
 export default router;

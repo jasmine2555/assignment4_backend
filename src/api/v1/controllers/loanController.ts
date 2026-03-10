@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { HTTP_STATUS } from "../../constants/httpConstants";
+import { HTTP_STATUS } from "../../../constants/httpConstants";
 import { NotFoundError } from "../errors/notFoundError";
 import { loans } from "../models/mockLoanData";
 import { CreateLoanBody, Loan, UpdateLoanBody } from "../models/loanModel";

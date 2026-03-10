@@ -1,12 +1,12 @@
 import { NextFunction, Request, Response } from "express";
-import { HTTP_STATUS } from "../../constants/httpConstants";
+import { HTTP_STATUS } from "../../../constants/httpConstants";
 import { BaseError } from "../errors/baseError";
 
 export const errorHandler = (
   err: Error,
   req: Request,
   res: Response,
-  next: NextFunction,
+  next: NextFunction
 ): void => {
   if (err instanceof BaseError) {
     res.status(err.statusCode).json({

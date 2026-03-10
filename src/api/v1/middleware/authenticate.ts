@@ -1,5 +1,4 @@
 import { NextFunction, Request, Response } from "express";
-import admin from "../../config/firebase";
 import { AuthenticationError } from "../errors/authenticationError";
 
 export const authenticate = async (
@@ -20,17 +19,42 @@ export const authenticate = async (
     }
 
     const token: string = authHeader.split(" ")[1];
-    const decodedToken = await admin.auth().verifyIdToken(token);
 
-    res.locals.user = {
-      uid: decodedToken.uid,
-      email: decodedToken.email,
-      role: decodedToken.role,
-    };
+    if (token === "officer-token-abc123") {
+      res.locals.user = {
+        uid: "officer-uid-001",
+        email: "officer@pixell-river.com",
+        role: "officer",
+      };
+      return next();
+    }
 
-    next();
+    if (token === "manager-token-abc123") {
+      res.locals.user = {
+        uid: "manager-uid-001",
+        email: "manager@pixell-river.com",
+        role: "manager",
+      };
+      return next();
+    }
+
+    if (token === "admin-token-abc123") {
+      res.locals.user = {
+        uid: "admin-uid-001",
+        email: "admin@pixell-river.com",
+        role: "admin",
+      };
+      return next();
+    }
+
+    return next(
+      new AuthenticationError(
+        "Unauthorized: Invalid token",
+        "TOKEN_INVALID"
+      )
+    );
   } catch (error) {
-    next(
+    return next(
       new AuthenticationError(
         "Unauthorized: Invalid token",
         "TOKEN_INVALID"

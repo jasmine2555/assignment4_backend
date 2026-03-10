@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { HTTP_STATUS } from "../../constants/httpConstants";
+import { HTTP_STATUS } from "../../../constants/httpConstants";
 
 interface SignInBody {
   email: string;
@@ -9,7 +9,10 @@ interface SignInBody {
 export const signIn = (req: Request, res: Response): void => {
   const body: SignInBody = req.body as SignInBody;
 
-  if (body.email === "officer@pixell-river.com" && body.password === "password123") {
+  if (
+    body.email === "officer@pixell-river.com" &&
+    body.password === "password123"
+  ) {
     res.status(HTTP_STATUS.OK).json({
       idToken: "officer-token-abc123",
       email: body.email,
@@ -20,7 +23,10 @@ export const signIn = (req: Request, res: Response): void => {
     return;
   }
 
-  if (body.email === "manager@pixell-river.com" && body.password === "password123") {
+  if (
+    body.email === "manager@pixell-river.com" &&
+    body.password === "password123"
+  ) {
     res.status(HTTP_STATUS.OK).json({
       idToken: "manager-token-abc123",
       email: body.email,
@@ -31,7 +37,10 @@ export const signIn = (req: Request, res: Response): void => {
     return;
   }
 
-  if (body.email === "admin@pixell-river.com" && body.password === "password123") {
+  if (
+    body.email === "admin@pixell-river.com" &&
+    body.password === "password123"
+  ) {
     res.status(HTTP_STATUS.OK).json({
       idToken: "admin-token-abc123",
       email: body.email,

@@ -2,9 +2,9 @@ import cors from "cors";
 import dotenv from "dotenv";
 import express, { Application } from "express";
 import helmet from "helmet";
-import loanRoutes from "./v1/routes/loanRoutes";
-import { errorHandler } from "./v1/middleware/errorHandler";
-import { logger } from "./v1/middleware/logger";
+import loanRoutes from "./api/v1/routes/loanRoutes";
+import { errorHandler } from "./api/v1/middleware/errorHandler";
+import { logger } from "./api/v1/middleware/logger";
 
 dotenv.config();
 
