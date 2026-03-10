@@ -18,7 +18,8 @@ export const authenticate = async (
       );
     }
 
-    const token: string = authHeader.split(" ")[1];
+    const parts: string[] = authHeader.split(" ");
+const token: string = parts[1];
 
     if (token === "officer-token-abc123") {
       res.locals.user = {
