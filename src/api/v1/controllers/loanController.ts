@@ -43,7 +43,7 @@ export const createLoan = (req: Request, res: Response): void => {
     applicant: body.applicant,
     amount: body.amount,
     status: "pending", // default status when loan is created
-    createdAt: new Date().toISOString(),
+    createdAt: new Date().toISOString(), // store creation time
   };
 
   loans.push(newLoan);
