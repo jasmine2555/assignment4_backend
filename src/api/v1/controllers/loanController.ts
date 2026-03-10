@@ -59,9 +59,9 @@ export const updateLoan = (req: Request, res: Response): void => {
   const body: UpdateLoanBody = req.body as UpdateLoanBody;
   const loan: Loan | undefined = loans.find((item: Loan) => item.id === id);
 
-  if (!loan) {
-    throw new NotFoundError("Loan not found", "LOAN_NOT_FOUND");
-  }
+if (!loan) {
+  throw new NotFoundError("Loan not found", "LOAN_NOT_FOUND");
+}
 
   if (body.applicant !== undefined) {
     loan.applicant = body.applicant;
