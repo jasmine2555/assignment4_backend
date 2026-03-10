@@ -42,7 +42,7 @@ export const createLoan = (req: Request, res: Response): void => {
     id: loans.length + 1,
     applicant: body.applicant,
     amount: body.amount,
-    status: "pending",
+    status: "pending", // default status when loan is created
     createdAt: new Date().toISOString(),
   };
 
